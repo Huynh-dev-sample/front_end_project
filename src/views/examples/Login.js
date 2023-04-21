@@ -23,17 +23,24 @@ const Login = (props) => {
   const [error, setError] = useState("");
 
   const tryLogin = async () => {
-    const response = await login(email, password);
-    const { data } = response;
-    if (data.success) {
-      setError("");
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-      props.history.push("/");
-    } else {
-      setPassword("");
-      setError(data.msg);
+    // const response = await login(email, password);
+    // const { data } = response;
+    // if (data.success) {
+    //   setError("");
+    //   localStorage.setItem("token", data.token);
+    //   localStorage.setItem("user", JSON.stringify(data.user));
+    //   props.history.push("/");
+    // } else {
+    //   setPassword("");
+    //   setError(data.msg);
+    // }
+    let user = {
+      name: "Admin",
+      email: "admin@gmail.com"
     }
+    localStorage.setItem("token", "abcd12345678");
+      localStorage.setItem("user", JSON.stringify(user));
+      props.history.push("/");
   };
 
   return (

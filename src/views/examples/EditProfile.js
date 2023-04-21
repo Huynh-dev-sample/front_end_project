@@ -19,14 +19,16 @@ import EditHeader from "../../components/Headers/EditHeader";
 import { edit } from "../../network/ApiAxios";
 
 const EditProfile = (props) => {
-  let user = JSON.parse(localStorage.getItem("user"));
+  // let user = JSON.parse(localStorage.getItem("user"));
+  let user = localStorage.getItem("user");
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [isTestUser, setIsTestUser] = useState(false);
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("user")).email === "test@test.com") {
+    // if (JSON.parse(localStorage.getItem("user")).email === "test@test.com") {
+      if (localStorage.getItem("user").email === "test@test.com") {
       setIsTestUser(true);
     }
   }, []);

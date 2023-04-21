@@ -20,19 +20,19 @@ import {
 import { logout } from "../../network/ApiAxios";
 
 const AdminNavbar = (props) => {
-  let username = JSON.parse(localStorage.getItem("user")).name;
-
+  // let username = JSON.parse(localStorage.getItem("user")).name;
+  let username = localStorage.getItem("user").name;
   const logOut = async () => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      const response = await logout(token);
-      const { data } = response;
-      if (data.success) {
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        props.history.push("/auth/login");
-      }
-    }
+    // const token = localStorage.getItem("token");
+    // if (token) {
+    //   const response = await logout(token);
+    //   const { data } = response;
+    //   if (data.success) {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    props.history.push("/auth/login");
+    //   }
+    // }
   };
 
   return (
@@ -45,18 +45,6 @@ const AdminNavbar = (props) => {
           >
             {props.brandText}
           </Link>
-          <Form className="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
-            <FormGroup className="mb-0">
-              <InputGroup className="input-group-alternative">
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    <i className="fas fa-search" />
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input placeholder="Search" type="text" />
-              </InputGroup>
-            </FormGroup>
-          </Form>
           <Nav className="align-items-center d-none d-md-flex" navbar>
             <UncontrolledDropdown nav>
               <DropdownToggle className="pr-0" nav>
@@ -64,9 +52,7 @@ const AdminNavbar = (props) => {
                   <span className="avatar avatar-sm rounded-circle">
                     <img
                       alt="..."
-                      src={
-                        require("assets/img/theme/team-4-800x800.jpg").default
-                      }
+                      src={require("assets/img/theme/default_user.png").default}
                     />
                   </span>
                   <Media className="ml-2 d-none d-lg-block">
@@ -88,14 +74,7 @@ const AdminNavbar = (props) => {
                   <i className="ni ni-settings-gear-65" />
                   <span>Settings</span>
                 </DropdownItem>
-                <DropdownItem to="/admin/user-profile" tag={Link}>
-                  <i className="ni ni-calendar-grid-58" />
-                  <span>Activity</span>
-                </DropdownItem>
-                <DropdownItem to="/admin/user-profile" tag={Link}>
-                  <i className="ni ni-support-16" />
-                  <span>Support</span>
-                </DropdownItem>
+
                 <DropdownItem divider />
                 <DropdownItem href="#pablo" onClick={logOut}>
                   <i className="ni ni-user-run" />

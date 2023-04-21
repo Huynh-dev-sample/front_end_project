@@ -43,13 +43,12 @@ class Auth extends React.Component {
                   <Col lg="5" md="6">
                     <h1 className="text-white">Welcome!</h1>
                     <p className="text-lead text-light">
-                      Use these awesome forms to login or create new account.
+                      Use these forms to login or create new account.
                     </p>
                   </Col>
                 </Row>
               </div>
             </Container>
-           
           </div>
           {/* Page content */}
           <Container className="mt--8 pb-5">

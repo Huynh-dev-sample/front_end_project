@@ -5,7 +5,8 @@ import { Button, Container, Row, Col } from "reactstrap";
 import { useHistory } from "react-router-dom";
 
 const EditHeader = () => {
-  const username = JSON.parse(localStorage.getItem("user")).name;
+  // const username = JSON.parse(localStorage.getItem("user")).name;
+  const username = localStorage.getItem("user").name;
   const history = useHistory();
 
   return (
